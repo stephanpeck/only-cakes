@@ -1,0 +1,19 @@
+.cardContainer {
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+    padding: 10px;
+    display: inline-block;
+    margin: 3px;
+    text-align: center;
+    
+    min-height: 11rem;
+    /* background-color: green; */
+    
+}
+
+/* [id^=”ColorOption”]
+{
+
+     margin:0px; width:100%; border-radius: 0px; padding:0px; border: none; 
+
+} */

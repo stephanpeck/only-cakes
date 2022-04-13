@@ -1,0 +1,179 @@
+﻿<!--Stephan Peck-->
+<!--Assignment 3-->
+<!--Section3 Group7-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>TITLE</title>
+    <link rel="shortcut icon" type="assets/image/jpg" href="img/favicon.png" />
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+    <!-- Font Awesome Icons -->
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static " plugins /fontawesome-free/css/all.min.css" %}">
+    --->
+    <!-- Theme style -->
+    <link href="assets/css/material-kit.css" rel="stylesheet" />
+    <!-- Google Font: Source Sans Pro / Material icons -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+</head>
+
+<body class="index-page sidebar-collapse">
+    <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <!--<img class="img-responsive" width='28%' src="" alt="">-->
+                    Home
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Calculator">
+                            <i class="material-icons">calculate</i> Grade Calculator
+                        </a>
+                    </li>
+                    <!--
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login'%}">
+                            <i class="material-icons">person</i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout'%}">
+                            <i class="material-icons">sensor_door</i> Logout
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register'%}">
+                            <i class="material-icons">how_to_reg</i> Register
+                        </a>
+                    </li>
+                        -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    
+    <div class="page-header header-filter blur-filter" data-parallax="true" style="background-image: url('/img/background.jpg');">
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto">
+                    <div class="brand">
+
+
+                        <h1>TITLE</h1>
+
+
+
+
+                        <h2>TITLE</h2>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main main-raised">
+        <div class="section section-basic">
+            <div class="container">
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <footer class="footer" data-background-color="black">
+        <div class="container">
+
+
+            <div class="copyright float-right" style="font-size: 13px">
+                &copy;
+                <script>
+                    document.write(new Date().getFullYear())
+                </script> Group 10 | Section 3
+            </div>
+        </div>
+
+    </footer>
+
+
+
+    <!--   Core JS Files   -->
+    <script src="assets/plugins/bootstrap/js/core/jquery.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/core/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/core/bootstrap-material-design.min.js"></script>
+
+    <script src="assets/plugins/bootstrap/js/plugins/moment.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/plugins/nouislider.min.js"></script>
+
+    <script src="assets/plugins/bootstrap/js/material-kit.js"></script>
+
+    <script src="assets/js/grader.js"></script>
+    <!--added after adding jquery package-->
+    <script src="assets/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            //init DateTimePickers
+            materialKit.initFormExtendedDatetimepickers();
+
+            // Sliders Init
+            materialKit.initSliders();
+        });
+
+
+        function scrollToDownload() {
+            if ($('.section-download').length != 0) {
+                $("html, body").animate({
+                    scrollTop: $('.section-download').offset().top
+                }, 1000);
+            }
+        }
+    </script>
+
+
+
+
+
+</body>
+</html>

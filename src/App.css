@@ -1,0 +1,95 @@
+
+/* .cakeDisplay {  display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    justify-content: center;
+    grid-template-areas:
+      "cakeOptions cakeView";
+    width: 100%;
+  } */
+  
+  /* .cakeOptions {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . ."
+      ". . ."
+      ". . .";
+    grid-area: cakeOptions;
+  } */
+  
+  /* .cakeView {  display: grid;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-area: cakeView;
+  } */
+/*   
+  .split {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .left {
+    left: 0;
+    
+  }
+  
+  .right {
+    right: 0;
+    
+  }
+  
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  } */
+
+.splitRight{
+    height: 100%;
+    width: 50%;
+    /* position: relative; */
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    right: 0;
+    /* background-color: red; */
+    column-count: 2;
+    
+
+}
+  .grid-container {
+    /* display: grid; */
+    column-gap: 50px;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+    margin-top: 500px;
+    right: 0;
+    
+  }
+  
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .cakePic{
+    margin-left: 50%;
+    right:0px
+  }

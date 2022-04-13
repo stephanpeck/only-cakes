@@ -1,0 +1,23 @@
+﻿body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: #b5b5b5;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+label {
+    font-size: 20px;
+    width: 170px;
+    display: inline-block;
+}
+
+
+input.form {
+    width: 20px;
+}
+
+container {
+    width: 400px;
+    margin: 0 auto;
+    background-color: #66ffff;
+}
