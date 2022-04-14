@@ -11,6 +11,7 @@
     margin: 3px;
     text-align: left;
     min-height: 13rem;
+    
 
 }
 
@@ -38,7 +39,7 @@
     display: inline-block;
     margin: 3px;
     text-align: left;
-    
+    max-width: 13rem;
     
     
 }
