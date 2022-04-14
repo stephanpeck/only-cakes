@@ -11,7 +11,7 @@ import nakedSideImg from "./img/naked-side.png";
 import blankImg from "./img/blank.png";
 
 //Toppings Import
-import chocolateDripImg from "./img/toppings/chocolate-drip.png";
+import dripImg from "./img/toppings/white-chocolate-drip.png";
 import sprinklesSideImg from "./img/toppings/sprinkles-side.png";
 import sprinklesTopImg from "./img/toppings/sprinkles-top.png";
 
@@ -20,12 +20,12 @@ import blueberryImg from "./img/add-ons/blueberry.png";
 import rosePetalsImg from "./img/add-ons/rose-petal.png";
 import strawberryImg from "./img/add-ons/strawberry.png";
 
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {useState} from 'react';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Grid, Row, Col } from 'react-bootstrap';
+
+
 
 
 
@@ -34,37 +34,22 @@ import { Grid, Row, Col } from 'react-bootstrap';
 const App = () => {
 
     
-    const [cakeData_topF, setCakeData_topF] = useState("#709BE1");
+    const [cakeData_topF, setCakeData_topF] = useState("#FFFFFF");
     const [cakeData_top, setCakeData_top] = useState("#FFFFFF");
     const [cakeData_side, setCakeData_side] = useState("#FFFFFF");
-    //const [cakeData_bottom, setCakeData_bottom] = useState("");
-    const [cakeData_bottomF, setCakeData_bottomF] = useState("#709BE1");
-
-
-
+    const [cakeData_bottomF, setCakeData_bottomF] = useState("#FFFFFF");
 
 
     const [cakeId_topF, setCakeId_topF] = useState("");
     const [cakeId_top, setCakeId_top] = useState("");
     const [cakeId_side, setCakeId_side] = useState("");
-    //const [cakeId_bottom, setCakeId_bottom] = useState("");
     const [cakeId_bottomF, setCakeId_bottomF] = useState("");
-
-    
 
 
     const cakeDataHandler_App = (enteredCakeData) => {
         
         const cake = enteredCakeData
-        //console.log(enteredCakeData)
-        //this.cakeData = enteredCakeData;
 
-        //console.log(cakeData.id);
-        //setAllColorData(cakeData);
-        //setcakeId(allColorData.cakeId);
-        // setCakeData(cake.value);
-        // setcakeId(cake.id);
-        //console.log(cake.id)
         
         if(cake.id === "topfrostColorOption"){
             setCakeData_topF(cake.value);
@@ -78,26 +63,13 @@ const App = () => {
             setCakeData_side(cake.value);
             setCakeId_side(cake.id);
         };
-        // if(cake.id === "bottomColorOption"){
-        //     setCakeData_bottom(cake.value);
-        //     setCakeId_bottom(cake.id);
-        // }
+
         if(cake.id === "botfrostColorOption"){
             setCakeData_bottomF(cake.value);
             setCakeId_bottomF(cake.id);
         };
     };
 
-
-    // let cakeTop = cakeTopImg;
-    // let cakeSide = cakeSideImg;
-    // let frostingBottom = cakeFrostingBottomImg;
-    // let frostingTop = cakeFrostingTopImg;
-
-
-    
- //////////////check state
-    const [check, setCheck] = useState(false);
 
     //top Frosting Image
     const [frostingTop, setTopFrost] = useState(blankImg);
@@ -117,22 +89,15 @@ const App = () => {
 
    const[addOns, setAddOns] = useState(blankImg);
 
+   const[drip, setDrip] = useState('#FFFFFF');
+
 
     const checkHandler_App = (checkDataParam) => {
         const checkData = checkDataParam;
-        
-        setCheck(checkData.checked);
-        // console.log(checkData)
-        // console.log(checkData.id)
-        // console.log(checkData.checked)
-        // console.log(checkData.value)
+
 
         if(checkData.id.includes("Checkbox")){
-            //console.log("checkbox check")
-            //console.log(checkData)
-            //console.log(checkData.id)
-            //console.log(checkData.checked)
-            //console.log(checkData.value)
+
         
             if(checkData.id === "topfrostCheckbox" && checkData.checked === true){
                 setTopFrost(cakeFrostingTopImg);
@@ -163,19 +128,7 @@ const App = () => {
             }
         }
         else if (checkData.id=== "topping1Radio"){
-            // console.log(checkData)
-            // console.log(checkData.id)
-            // console.log(checkData.checked)
-            // console.log(checkData.value)
 
-            if(checkData.value === "Chocolate-Drip" && checkData.checked === true){
-                setTopping1(blankImg);
-                setTopping1(chocolateDripImg);
-            }
-            else if(checkData.value === "Chocolate-Drip" && checkData.checked === false){
-                setTopping1(blankImg);
-                
-            }
             if(checkData.value === "Sprinkles-Top" && checkData.checked === true){
                 setTopping2(blankImg);
                 setTopping2(sprinklesTopImg);
@@ -195,21 +148,51 @@ const App = () => {
         
         }
         else if (checkData.id=== "topping2Radio"){
+
             if(checkData.value === "None" && checkData.checked === true){
                 setAddOns(blankImg);
                 
             }
-            if(checkData.value === "Blueberries" && checkData.checked === true){
+            else if(checkData.value === "Blueberries" && checkData.checked === true){
                 setAddOns(blankImg);
                 setAddOns(blueberryImg);
             }
-            if(checkData.value === "Rose-Petals" && checkData.checked === true){
+            else if(checkData.value === "Rose-Petals" && checkData.checked === true){
                 setAddOns(blankImg);
                 setAddOns(rosePetalsImg);
             }
-            if(checkData.value === "Strawberries" && checkData.checked === true){
+            else if(checkData.value === "Strawberries" && checkData.checked === true){
                 setAddOns(blankImg);
                 setAddOns(strawberryImg);
+            }
+
+
+        }
+        else if (checkData.id=== "topping3Radio"){
+
+            if(checkData.value === "None" && checkData.checked === true){
+                setTopping1(blankImg);
+                
+            }
+            else if(checkData.value === "Chocolate-Drip" && checkData.checked === true){
+                setTopping1(dripImg);
+                setDrip("#602A2A");
+            }
+            else if(checkData.value === "White-Chocolate-Drip" && checkData.checked === true){
+                setTopping1(dripImg);
+                setDrip("#FFFFFF");
+            }
+            else if(checkData.value === "Strawberry-Drip" && checkData.checked === true){
+                setTopping1(dripImg);
+                setDrip("#E55252");
+            }
+            else if(checkData.value === "Blueberry-Drip" && checkData.checked === true){
+                setTopping1(dripImg);
+                setDrip("#5D67F4");
+            }
+            else if(checkData.value === "Raspberry-Drip" && checkData.checked === true){
+                setTopping1(dripImg);
+                setDrip("#E7136F");
             }
 
 
@@ -219,9 +202,7 @@ const App = () => {
         
     };
 
-      
-        // console.log(cakeData_topF)
-        // console.log(cakeId_topF)
+
 
     const matchFrostingTop = () => {
         setCakeData_bottomF(cakeData_topF);
@@ -235,74 +216,6 @@ const App = () => {
 
     return(
         
-        
-        
-        // <>
-        // <div className="section section-basic">
-            
-        //         <div style={{postion: "relative"}}>
-        //             <CakePiece  cakePieceImg={cakePlateImg} id='plate' data="#D0D3D8" dataId={"none"} key={10}/>
-        //             <CakePiece  cakePieceImg={cakeSide} id='sideColorOption' data={cakeData_side} dataId={cakeId_side} key={11}/>
-        //             <CakePiece  cakePieceImg={cakeTop} id='topColorOption' data={cakeData_top} dataId={cakeId_top} key={12}/>
-        //             <CakePiece  cakePieceImg={topping3} id='SprinklesSide' data={'#FFFFFF'} key={13}/>
-        //             <CakePiece  cakePieceImg={topping1} id='chocolateDrip' data={'#FFFFFF'} key={14}/>
-        //             <CakePiece  cakePieceImg={topping2} id='SprinklesTop' data={'#FFFFFF'} key={15}/>
-        //             <CakePiece  cakePieceImg={frostingTop} id='topfrostColorOption' data={cakeData_topF} dataId={cakeId_topF} key={16}/>
-        //             <CakePiece  cakePieceImg={addOns} id='AddOns' data={'#FFFFFF'} key={17}/>
-        //             <CakePiece  cakePieceImg={frostingBottom} id='botfrostColorOption' data={cakeData_bottomF} dataId={cakeId_bottomF} key={18}/>
-        //         </div>
-            
-        // </div>
-        
-        // <div className="section section-basic" style={{postion: "relative"}}>
-        //     <div>
-        //     <CakeOptions 
-        //                 cakeDataCallback_App={cakeDataHandler_App} 
-        //                 matchFrostTop = {matchFrostingTop}
-        //                 matchCakeColor = {matchCakeColor}
-        //                 checkCallback_App={checkHandler_App}
-        //                 cakeData_topF={cakeData_topF}
-        //             />
-        //     </div>
-        // </div>
-    
-                
-        // </>
-         
-
-
-
-        // <div >
-
-        //     <div className="row">
-        //         <div className="col-md-6">
-        //             <div className="row">
-                        
-        //                 <CakeOptions className="col-md-4"
-        //                     cakeDataCallback_App={cakeDataHandler_App} 
-        //                     matchFrostTop = {matchFrostingTop}
-        //                     matchCakeColor = {matchCakeColor}
-        //                     checkCallback_App={checkHandler_App}
-        //                     cakeData_topF={cakeData_topF}
-        //                 />
-                        
-        //             </div>
-        //         </div>
-        //         <div className="col-md-6">
-        //             <CakePiece cakePieceImg={cakePlateImg} id='plate' data="#D0D3D8" dataId={"none"} key={10}/>
-        //             <CakePiece cakePieceImg={cakeSide} id='sideColorOption' data={cakeData_side} dataId={cakeId_side} key={11}/>
-        //             <CakePiece cakePieceImg={cakeTop} id='topColorOption' data={cakeData_top} dataId={cakeId_top} key={12}/>
-        //             <CakePiece cakePieceImg={topping3} id='SprinklesSide' data={'#FFFFFF'} key={13}/>
-        //             <CakePiece cakePieceImg={topping1} id='chocolateDrip' data={'#FFFFFF'} key={14}/>
-        //             <CakePiece cakePieceImg={topping2} id='SprinklesTop' data={'#FFFFFF'} key={15}/>
-        //             <CakePiece cakePieceImg={frostingTop} id='topfrostColorOption' data={cakeData_topF} dataId={cakeId_topF} key={16}/>
-        //             <CakePiece cakePieceImg={addOns} id='AddOns' data={'#FFFFFF'} key={17}/>
-        //             <CakePiece cakePieceImg={frostingBottom} id='botfrostColorOption' data={cakeData_bottomF} dataId={cakeId_bottomF} key={18}/>
-        //         </div>
-        //     </div>
-        // </div>
-
-
         <>
             <div className="cakePic">
                 
@@ -311,7 +224,7 @@ const App = () => {
                         <CakePiece  cakePieceImg={cakeSide} id='sideColorOption' data={cakeData_side} dataId={cakeId_side} key={11}/>
                         <CakePiece  cakePieceImg={cakeTop} id='topColorOption' data={cakeData_top} dataId={cakeId_top} key={12}/>
                         <CakePiece  cakePieceImg={topping3} id='SprinklesSide' data={'#FFFFFF'} key={13}/>
-                        <CakePiece  cakePieceImg={topping1} id='chocolateDrip' data={'#FFFFFF'} key={14}/>
+                        <CakePiece  cakePieceImg={topping1} id='drip' data={drip} key={14}/>
                         <CakePiece  cakePieceImg={topping2} id='SprinklesTop' data={'#FFFFFF'} key={15}/>
                         <CakePiece  cakePieceImg={frostingTop} id='topfrostColorOption' data={cakeData_topF} dataId={cakeId_topF} key={16}/>
                         <CakePiece  cakePieceImg={addOns} id='AddOns' data={'#FFFFFF'} key={17}/>
@@ -319,19 +232,19 @@ const App = () => {
                     
                 
             </div>
-        <div className="splitRight">
-           
-                
-                <CakeOptions className="grid-item"
-                            cakeDataCallback_App={cakeDataHandler_App} 
-                            matchFrostTop = {matchFrostingTop}
-                            matchCakeColor = {matchCakeColor}
-                            checkCallback_App={checkHandler_App}
-                            cakeData_topF={cakeData_topF}
-                        />
-                
+            <div className="splitRight">
             
-        </div>
+                    
+                    <CakeOptions className="grid-item"
+                                cakeDataCallback_App={cakeDataHandler_App} 
+                                matchFrostTop = {matchFrostingTop}
+                                matchCakeColor = {matchCakeColor}
+                                checkCallback_App={checkHandler_App}
+                                cakeData_topF={cakeData_topF}
+                            />
+                    
+                
+            </div>
     
                 
         </>

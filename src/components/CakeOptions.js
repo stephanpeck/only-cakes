@@ -1,11 +1,7 @@
 import "./CakeOptions.css";
 import IngredientOption from "./IngredientOption"
-import { useState } from "react";
 
 const CakeOptions = (props) => {
-
-
-
 
 
     let allIngredients = [
@@ -69,9 +65,19 @@ const CakeOptions = (props) => {
           id: "topping1",
           name: "Toppings",
           subtitle: "(Choose Multiple)",
-          options: ["Chocolate-Drip", 
+          options: [ 
                      "Sprinkles-Top", "Sprinkles-Side",],
           key: 7,
+          
+
+        },
+        {
+          id: "topping3",
+          name: "Drips",
+          subtitle: "(Choose One)",
+          options: ["None", "Chocolate-Drip", 
+                     "White-Chocolate-Drip", "Strawberry-Drip", "Blueberry-Drip", "Raspberry-Drip",],
+          key: 9,
           
 
         },
@@ -88,20 +94,15 @@ const CakeOptions = (props) => {
 ];
 
 
-
+//callbacks to send to parent component
     const cakeDataHandler_CakeOptions = (enteredCakeData) => {
       const cakeData = enteredCakeData
-      //console.log(cakePieceId.cakePieceId)
-      //console.log(enteredCakeData)
       props.cakeDataCallback_App(cakeData);
-      //console.log(cakeData);
+
     };
 
     const checkHandler_CakeOptions = (enteredCheckData) => {
       const checkData = enteredCheckData
-      //console.log(checkData)
-      //console.log(checkData.id)
-      //console.log(checkData.checked)
       props.checkCallback_App(checkData);
     };
 

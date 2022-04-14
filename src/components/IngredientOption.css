@@ -1,37 +1,56 @@
-/* @keyframes example {
-    0%   {background-color:red; left:0px; top:0px;}
-    25%  {background-color:yellow; left:200px; top:0px;}
-    50%  {background-color:blue; left:200px; top:200px;}
-    75%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}
-  } */
 
 
-.topfrostIngredientOption,
 .topIngredientOption,
-.botfrostIngredientOption,
-.sideIngredientOption
+.topfrostIngredientOption
+
  {
     border-radius: 12px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.75);
     padding: 10px;
     display: inline-block;
     margin: 3px;
-    text-align: center;
+    text-align: left;
+    min-height: 13rem;
 
 }
+
+
+.sideIngredientOption,
+.botfrostIngredientOption
+{
+  border-radius: 12px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.75);
+  padding: 10px;
+  display: inline-block;
+  margin: 3px;
+  text-align: left;
+  min-height: 11rem;
+
+}
+
 .topping1IngredientOption,
-.topping2IngredientOption
+.topping2IngredientOption,
+.topping3IngredientOption
 {
     border-radius: 12px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.75);
     padding: 10px;
     display: inline-block;
     margin: 3px;
-    text-align: center;
+    text-align: left;
     
     
     
+}
+
+
+.radioUnselect
+{
+ font-weight: lighter;
+}
+.radioSelect
+{
+ font-weight: bolder;
 }
 
 

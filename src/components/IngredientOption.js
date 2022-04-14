@@ -1,6 +1,4 @@
-import CakeOptions from "./CakeOptions"
 import "./IngredientOption.css"
-import CardContainer from "./CardContainer";
 import { useState } from "react";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,21 +8,20 @@ import Button from 'react-bootstrap/Button';
 const IngredientOption = (props) => {
     
 
-
     const [colorOption, setColorOption] = useState(props.color);
     const [cakeId, setCakeId] = useState(props.cakeId);
     
-    //uses state and the colorhandler3 function to update the state and rerender the component, but you want to send the event.target.value up to the parent component because sending
+    //uses state and the colorhandler3 function to update the state and rerender the component, 
+    //but you want to send the event.target.value up to the parent component because sending
     //colorOption will be a step behind
     const ColorHandler3 = (event) => {
-        //setColorOption(document.getElementById(`${props.id}ColorOption`).value);
+
 
         setColorOption(event.target.value);
-        //setCakeId(event.target.id);
-        
-        // props.allColorData({colorOption: colorOption, cakeId: cakeId});
+
         props.cakeDataCallback_CakeOptions(event.target);
 
+        
 
         //will display the color right before the state change because the state change happens after the function is called
         //console.log(colorOption);
@@ -38,19 +35,17 @@ const IngredientOption = (props) => {
     
     const CheckHandler = (event) => {
 
-        // console.log(event.target)
+        
         props.checkCallback_CakeOptions(event.target);
         setChecked(!checked); 
 
-        //console.log(event.target.checked)
+
         if (event.target.checked && props.color){
-            //document.getElementById(`${props.id}ColorOption`).style.display='block'
-            //document.getElementById(`${props.id}ColorForm`).style.display='block'
+
             setChecked("block");
         }
         else{
-            //document.getElementById(`${props.id}ColorOption`).style.display='none'
-            //document.getElementById(`${props.id}ColorForm`).style.display='none'
+
             setChecked("none");
         }
          
@@ -58,23 +53,25 @@ const IngredientOption = (props) => {
     };
     
     //I just use onChange, so this was purely educational to make
-    const submitHandler = (event) => {
-        event.preventDefault();
+    // const submitHandler = (event) => {
+    //     event.preventDefault();
 
-        const selectedCakeOptions = {
-            color: colorOption,
+    //     const selectedCakeOptions = {
+    //         color: colorOption,
 
-        }
-        //console.log(colorOption)
+    //     }
+     
 
-    };
-    //console.log(props.cakeData_topF)
-    //backgroundColor: `${props.id}Checkbox`.checked ? "green" : "none"
-      //console.log(props.toppings)
-      //border: 40px solid #6e2222
+    // };
+ 
+      
     return( 
-        
-        <div className={`${props.id}IngredientOption`} style={{border: (props.id==="topping1" || props.id==="topping2") ? "10px solid #6C757D" : (checked === "block" || props.id==="cake" || props.id=="fill" ? "10px solid #00C851" : "10px solid #CC0000")}}>
+        //Changes the border color of the ingredient component depending on the type
+        <div className={`${props.id}IngredientOption`} 
+            style={{border: (props.id==="topping1" 
+                            || props.id==="topping2" 
+                            || props.id==="topping3") 
+                                ? "10px solid #6C757D" : (checked === "block" || props.id==="cake" || props.id==="fill" ? "10px solid #00C851" : "10px solid #CC0000")}}>
 
         
 
@@ -88,35 +85,47 @@ const IngredientOption = (props) => {
                     id={`${props.id}Checkbox`}
                     onChange={CheckHandler}
                     //forces Cake Flavor and Cake Filling to be checked
-                    {...props.required==true ? {checked: true} : null}
+                    {...props.required===true ? {checked: true} : null}
                     //forces remaining to default to unchecked
                     unchecked='true'
                     //hides checkbox for Toppings and Add ons, it was redundant
-                    style={{display: props.id === "topping1" || props.id === "topping2" ? "none" : null }}
+                    style={{display: props.id === "topping1" || props.id === "topping2" || props.id==="topping3" ? "none" : null }}
                 />
 
             </div>
-                <div style={{textAlign: 'center', fontWeight: 'bold'}}>{props.name}</div>
+                <div style={{textAlign: 'center', fontWeight: 'bold', bottom:20, zIndex:-1, position:"relative" }}>{props.name}</div>
+
 
                  {/*Ratio Selection for Topping Design */}
-
+                 {/* Anything with an option will be displayed here */}
                   {props.toppings? props.toppings.map(option => (
+                    <> 
+                    <label >
+                            <div style={{marginLeft: 15, marginBottom: 5, position:"absolute"}}>
+                                {option}
+                            </div>
 
-                    <>
-                        <input
-                            type={props.id === "topping2" ? 'radio' : 'checkbox'}
+                            {/* Determines if component will be a radio or checkbox */}
+                            <input
+                                type={props.id === "topping2" 
+                                        || props.id==="topping3" 
+                                            ? 'radio' : 'checkbox'}
+                                
+                                id={`${props.id}Radio`}
+                                onChange={CheckHandler}
+                                //forces Cake Flavor and Cake Filling to be checked
+                                style={{display: props.id === "topping1" 
+                                                || props.id=== "topping2" 
+                                                || props.id==="topping3" 
+                                                    ? "block" : "none"}}
+                                value={option}
+                                name={`${props.id}Radio`}
+                                
+                            />
+
+
                             
-                            id={`${props.id}Radio`}
-                            onChange={CheckHandler}
-                            //forces Cake Flavor and Cake Filling to be checked
-                            style={{display: props.id === "topping1" || props.id=== "topping2" ? "block" : "none"}}
-                            value={option}
-                            name='cakeOptionsRadios'
-                            {...option === "None" ? 'checked' : null}
-                        />
-                        <label 
-                            htmlFor={`${props.id}Radio`} 
-                            style={{border:'20px'}}>{option}
+                            
                         </label>
                     </>
                 
@@ -131,7 +140,7 @@ const IngredientOption = (props) => {
                             onChange={ColorHandler3} 
                             type="color" id={`${props.id}ColorOption`} 
                             defaultValue="#FFFFFF" 
-                            style={{display: checked, margin:'0px', width:'100%', height:'4rem', borderRadius: '0px', padding:'0px', border: 'none' }}
+                            style={{display: checked, margin:'0px', width:'100%', height:'2rem', borderRadius: '0px', padding:'0px', border: 'none' }}
                             
                              />
                     </label>
